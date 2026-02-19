@@ -48,6 +48,8 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
   "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u"
 ];
+ // 非Github的源
+"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",
 
 async function update() {
   console.log("開始抓取並過濾直播源...");
