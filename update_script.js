@@ -41,7 +41,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
-  "https://github.com/YueChan/Live/blob/main/GNTV.m3u",
+  "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
   "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u"
 ];
 
