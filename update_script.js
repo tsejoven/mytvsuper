@@ -38,6 +38,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
   "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
   "https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
+  "https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt"
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
