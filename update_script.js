@@ -46,10 +46,10 @@ const SOURCE_URLS = [
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
-  "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u"
-];
- // 非Github的源
-"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",
+  "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u",
+
+   // 非 GitHub 網址
+"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",];
 
 async function update() {
   console.log("開始抓取並過濾直播源...");
@@ -58,17 +58,21 @@ async function update() {
   for (const url of SOURCE_URLS) {
     try {
       console.log(`正在抓取: ${url}`);
-      const res = await axios.get(url, { timeout: 15000 });
-      const lines = res.data.split('\n');
+      // 增加 User-Agent 模擬瀏覽器，防止被非 GitHub 網站攔截
+      const res = await axios.get(url, { 
+        timeout: 20000, 
+        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36' }
+      });
       
+      const lines = res.data.split('\n');
       for (let i = 0; i < lines.length; i++) {
-        if (lines[i].startsWith('#EXTINF')) {
-          const name = lines[i].split(',')[1]?.trim() || "未知頻道";
-          const streamUrl = lines[i + 1]?.trim();
+        if (lines[i].trim().startsWith('#EXTINF')) {
+          const namePart = lines[i].split(',')[1];
+          const name = namePart ? namePart.trim() : "未知頻道";
+          const streamUrl = lines[i + 1] ? lines[i + 1].trim() : null;
           
           if (streamUrl && streamUrl.startsWith('http')) {
             const group = getGroupAndFilter(name);
-            // 關鍵修改：只有屬於我們想要的分組，才加入列表
             if (group) {
               rawChannels.push({ name, url: streamUrl, group: group });
             }
@@ -76,23 +80,23 @@ async function update() {
         }
       }
     } catch (e) {
-      console.log(`跳過失效源 ${url}: ${e.message}`);
+      // 關鍵優化：即便一個網址報錯，也會繼續執行下一個，不會讓整個程式壞掉
+      console.error(`跳過失效源或格式錯誤: ${url} | 錯誤原因: ${e.message}`);
     }
   }
 
-  // 去重
   const uniqueChannels = Array.from(new Map(rawChannels.map(c => [c.url, c])).values());
   console.log(`抓取完成，符合條件的頻道共 ${uniqueChannels.length} 個。`);
 
   // --- 3. 併發校驗 ---
   const validChannels = [];
-  const batchSize = 25; 
+  const batchSize = 15; 
 
   for (let i = 0; i < uniqueChannels.length; i += batchSize) {
     const batch = uniqueChannels.slice(i, i + batchSize);
     const results = await Promise.all(batch.map(async (channel) => {
       try {
-        await axios.head(channel.url, { timeout: 4000 });
+        await axios.head(channel.url, { timeout: 5000, headers: { 'User-Agent': 'Mozilla/5.0' } });
         return channel;
       } catch (e) {
         return null;
@@ -115,4 +119,6 @@ async function update() {
   console.log(`更新完成！有效頻道總數: ${validChannels.length}`);
 }
 
-update();
+update().catch(err => {
+  console.error("程式運行發生重大錯誤:", err);
+});
