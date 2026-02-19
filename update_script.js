@@ -41,7 +41,6 @@ const SOURCE_URLS = [
   "https://php.946985.filegear-sg.me/jackTV.m3u"
   "http://rihou.cc:555/gggg.nzk"
   "https://ds65.tv1288.xyz"
-  "https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt"
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
