@@ -2,36 +2,50 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-// --- 1. 智慧分組邏輯 (優化版：含港澳台識別) ---
-const getGroup = (name) => {
+// --- 1. 智慧分組與過濾邏輯 ---
+const getGroupAndFilter = (name) => {
   const n = name.toUpperCase();
-  // 央視識別
-  if (n.includes("CCTV") || n.includes("央視")) return "央視頻道";
-  // 港澳台識別 (增加更多關鍵字)
-  if (/翡翠|TVB|J2|鳳凰|香港|澳門|台灣|HK|TW|中天|東森|緯來|年代|民視|三立|八大|TVBS/.test(n)) return "港澳台";
-  // 衛視識別
-  if (n.includes("衛視")) return "省級衛視";
-  // 體育識別
-  if (n.includes("體育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星")) return "體育節目";
-  // 影視識別
-  if (n.includes("電影") || n.includes("MOVIE") || n.includes("影視") || n.includes("劇場")) return "影視劇場";
   
-  return "其他頻道";
+  // A. 優先識別港澳台 (擴大關鍵字範圍以增加獲取量)
+  if (/翡翠|TVB|J2|鳳凰|香港|澳門|台灣|HK|TW|中天|東森|緯來|年代|民視|三立|八大|TVBS|華視|台視|中視|龍祥|DISCOVERY|HBO|FOX|CNN/.test(n)) {
+    return "港澳台";
+  }
+  
+  // B. 識別央視
+  if (n.includes("CCTV") || n.includes("央視")) {
+    return "央視頻道";
+  }
+  
+  // C. 識別體育
+  if (n.includes("體育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星") || n.includes("足球") || n.includes("賽馬")) {
+    return "體育節目";
+  }
+
+  // D. 識別省級衛視
+  if (n.includes("衛視")) {
+    return "省級衛視";
+  }
+  
+  // E. 不符合以上條件的全部丟棄 (回傳 null)
+  return null;
 };
 
-// --- 2. 數據源列表 (你可以隨時在這裡增加新的訂閱地址) ---
+// --- 2. 擴大數據源列表 (增加更多專注於港澳台的源) ---
 const SOURCE_URLS = [
+  // 綜合源
   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
   "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
-  "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u"
+  "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
+  // 增加針對港澳台的特定源
+  "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
+  "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u"
 ];
 
 async function update() {
-  console.log("開始抓取直播源...");
+  console.log("開始抓取並過濾直播源...");
   let rawChannels = [];
 
-  // 抓取流程
   for (const url of SOURCE_URLS) {
     try {
       console.log(`正在抓取: ${url}`);
@@ -40,74 +54,56 @@ async function update() {
       
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].startsWith('#EXTINF')) {
-          // 提取名稱
           const name = lines[i].split(',')[1]?.trim() || "未知頻道";
-          // 提取網址 (下一行)
           const streamUrl = lines[i + 1]?.trim();
           
           if (streamUrl && streamUrl.startsWith('http')) {
-            rawChannels.push({ 
-              name, 
-              url: streamUrl, 
-              group: getGroup(name) 
-            });
+            const group = getGroupAndFilter(name);
+            // 關鍵修改：只有屬於我們想要的分組，才加入列表
+            if (group) {
+              rawChannels.push({ name, url: streamUrl, group: group });
+            }
           }
         }
       }
     } catch (e) {
-      console.log(`無法讀取源 ${url}: ${e.message}`);
+      console.log(`跳過失效源 ${url}: ${e.message}`);
     }
   }
 
-  // 移除重複的網址
+  // 去重
   const uniqueChannels = Array.from(new Map(rawChannels.map(c => [c.url, c])).values());
-  console.log(`抓取完成，總計 ${uniqueChannels.length} 個待校驗頻道。`);
+  console.log(`抓取完成，符合條件的頻道共 ${uniqueChannels.length} 個。`);
 
-  // --- 3. 併發校驗流程 ---
+  // --- 3. 併發校驗 ---
   const validChannels = [];
-  const batchSize = 20; // 每次同時校驗 20 個頻道
+  const batchSize = 25; 
 
   for (let i = 0; i < uniqueChannels.length; i += batchSize) {
     const batch = uniqueChannels.slice(i, i + batchSize);
     const results = await Promise.all(batch.map(async (channel) => {
       try {
-        // 使用 HEAD 請求快速檢查連結是否有效
-        await axios.head(channel.url, { 
-          timeout: 4000,
-          headers: { 'User-Agent': 'Mozilla/5.0' } 
-        });
+        await axios.head(channel.url, { timeout: 4000 });
         return channel;
       } catch (e) {
-        return null; // 失效則回傳空值
+        return null;
       }
     }));
-    
     validChannels.push(...results.filter(r => r !== null));
     console.log(`校驗進度: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length}`);
   }
 
   // --- 4. 生成檔案 ---
-  // 建立 data 資料夾
   const dir = './data';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-  // 生成 M3U 訂閱內容
-  let m3u = "#EXTM3U x-tvg-url=\"http://epg.51zmt.top:8000/e.xml\"\n";
+  let m3u = "#EXTM3U\n";
   validChannels.forEach(c => {
-    m3u += `#EXTINF:-1 tvg-name="${c.name}" group-title="${c.group}",${c.name}\n${c.url}\n`;
+    m3u += `#EXTINF:-1 group-title="${c.group}",${c.name}\n${c.url}\n`;
   });
 
-  // 寫入檔案
   fs.writeFileSync(path.join(dir, 'subscription.m3u'), m3u);
-  fs.writeFileSync(path.join(dir, 'channels.json'), JSON.stringify(validChannels, null, 2));
-
-  console.log(`--- 全部完成 ---`);
-  console.log(`有效頻道總數: ${validChannels.length}`);
+  console.log(`更新完成！有效頻道總數: ${validChannels.length}`);
 }
 
-// 執行任務
-update().catch(err => {
-  console.error("執行過程中發生錯誤:", err);
-  process.exit(1);
-});
-
+update();
