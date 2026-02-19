@@ -129,16 +129,14 @@ http://p.ytelc.com/169l/0/cctv.php?id=cctv9
 http://106.53.99.30/tv/api.php?id=bjws4k
 #EXTINF:-1 group-title="央視頻道",CCTV-6电影
 http://8.138.7.223/tv/1905.php?id=LIVE3YPYZ30E7V1R0
-#EXTINF:-1 group-title="港澳台",鳳凰衛視資訊台
-http://bxtv.3a.ink/api.php?id=fhzx
+#EXTINF:-1 group-title="港澳台",鳳凰衛視中文台
+http://bxtv.3a.ink/api.php?id=fhzw
 #EXTINF:-1 group-title="港澳台",鳳凰衛視香港台
 http://bxtv.3a.ink/api.php?id=fhhk
 #EXTINF:-1 group-title="港澳台",翡翠台
 http://bxtv.3a.ink/api.php?id=fct
 #EXTINF:-1 group-title="港澳台",TVB Plus
 http://bxtv.3a.ink/api.php?id=tvbp
-#EXTINF:-1 group-title="港澳台",中天新聞台
-http://bxtv.3a.ink/api.php?id=ztxw
 #EXTINF:-1 group-title="港澳台",凤凰中文
 http://r.jdshipin.com/cCCzW
 #EXTINF:-1 group-title="港澳台",凤凰资讯
@@ -193,6 +191,10 @@ http://php.jdshipin.com:8880/TVOD/iptv.php?id=as
 http://cdn9.163189.xyz/smt1.1.php?id=inews_twn
 #EXTINF:-1 group-title="港澳台",TVB翡翠台 1080P
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
+#EXTINF:-1 group-title="港澳台",华丽翡翠台
+http://cdn9.163189.xyz/smt1.1.php?id=Tvbjade
+#EXTINF:-1 group-title="港澳台",TVB明珠台
+http://cdn9.163189.xyz/smt1.1.php?id=pearl_twn
 #EXTINF:-1 group-title="省級衛視",星空卫视
 http://iot-mqqt.111yao.cn:8080/live/diyp_xingkong.m3u8
 #EXTINF:-1 group-title="港澳台",台视新闻
@@ -269,8 +271,6 @@ https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8
 https://www.youtube.com/channel/UC4K_LI-Tn3-LshNgG0-YypQ/live
 #EXTINF:-1 group-title="央視頻道",CCTV-4 中文国际（美） Ⓢ
 https://global.cgtn.cicc.media.caton.cloud/master/cgtn-america.m3u8
-#EXTINF:-1 group-title="港澳台",RTHK TV 31
-https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8
 #EXTINF:-1 group-title="港澳台",CNN Indonesia
 http://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
 #EXTINF:-1 group-title="體育節目",Sportitalia Plus
@@ -343,8 +343,6 @@ https://7pal.short.gy/tntspts3
 https://7pal.short.gy/tntspts4
 #EXTINF:-1 group-title="體育節目",天空体育主赛事全高清
 https://7pal.short.gy/SkSpMainE
-#EXTINF:-1 group-title="體育節目",天空体育英超全高清
-https://7pal.short.gy/ssportspl
 #EXTINF:-1 group-title="體育節目",天空体育足球全高清
 https://7pal.short.gy/ssportsfb
 #EXTINF:-1 group-title="體育節目",天空体育F1全高清
@@ -353,8 +351,8 @@ https://7pal.short.gy/ssportsf1
 https://7pal.short.gy/ssportstn
 #EXTINF:-1 group-title="體育節目",天空体育加台全高清
 https://7pal.short.gy/ssportplus
-#EXTINF:-1 group-title="體育節目",天空体育高尔夫全高清
-https://7pal.short.gy/ssportsgf
+#EXTINF:-1 group-title="體育節目",天空体育新闻全高清
+https://7pal.short.gy/ssportsnw
 #EXTINF:-1 group-title="體育節目",天空体育动作频道全高清
 https://7pal.short.gy/ssportsat
 #EXTINF:-1 group-title="體育節目",天空体育1台新西兰全高清
@@ -387,6 +385,8 @@ https://7pal.short.gy/fox507au
 https://7pal.short.gy/sptsnet1
 #EXTINF:-1 group-title="體育節目",体育网360台
 https://7pal.short.gy/sptsnet360
+#EXTINF:-1 group-title="體育節目",体育网安大略省台
+https://7pal.short.gy/sptsneton
 #EXTINF:-1 group-title="體育節目",加拿大体育网1台
 https://7pal.short.gy/tsn1ca
 #EXTINF:-1 group-title="體育節目",加拿大体育网2台
@@ -407,24 +407,6 @@ https://7pal.short.gy/prsport1
 https://7pal.short.gy/prsport2
 #EXTINF:-1 group-title="體育節目",齐戈体育全高清
 https://7pal.short.gy/zigosfhd
-#EXTINF:-1 group-title="港澳台",中天新聞台
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv009
-#EXTINF:-1 group-title="港澳台",中視
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv040
-#EXTINF:-1 group-title="港澳台",華視
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv041
-#EXTINF:-1 group-title="港澳台",華視新聞
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv052
-#EXTINF:-1 group-title="港澳台",中視新聞
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv074
-#EXTINF:-1 group-title="港澳台",東森購物1台
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv102
-#EXTINF:-1 group-title="港澳台",東森購物2台
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv103
-#EXTINF:-1 group-title="港澳台",寰宇新聞台灣台
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=4gtv-4gtv156
-#EXTINF:-1 group-title="港澳台",三立新聞iNEWS
-https://edgeone.passwdword.xyz/ofiii-passwd.php?token=passwd&id=iNEWS
 #EXTINF:-1 group-title="央視頻道",CCTV1
 http://183.215.134.239:19901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 group-title="央視頻道",CCTV5+
@@ -609,6 +591,8 @@ http://iptv.4666888.xyz/iptv2A.php?id=25
 https://o11.163189.xyz/stream/tvb/tvbp/
 #EXTINF:-1 group-title="港澳台",VIUTV
 https://cdn.163189.xyz/163189/viu
+#EXTINF:-1 group-title="港澳台",HOY76
+http://hls.168.us.kg/u/76/master.m3u8
 #EXTINF:-1 group-title="港澳台",HOY77
 http://iptv.4666888.xyz/iptv2A.php?id=35
 #EXTINF:-1 group-title="港澳台",RHK31
@@ -663,8 +647,6 @@ https://o11.163189.xyz/stream/tvb/fct4k/
 https://o11.163189.xyz/stream/live/hlt/
 #EXTINF:-1 group-title="港澳台",凤凰中文
 http://61.184.46.85:85/tsfile/live/1029_1.m3u8?key=txiptv&playlive=1&authid=0
-#EXTINF:-1 group-title="港澳台",凤凰资讯
-https://cdn9.163189.xyz/smt3.1.1.php?id=phoenixinfo_hd
 #EXTINF:-1 group-title="港澳台",民视新闻
 http://74.91.26.218:82/live/ftvnews.m3u8
 #EXTINF:-1 group-title="港澳台",台视新闻
@@ -717,6 +699,8 @@ https://247wlive.foxweather.com/stream/index_1280x720.m3u8
 https://pac12-samsungus.amagi.tv/playlist480_p.m3u8
 #EXTINF:-1 group-title="體育節目",体育片系列
 https://isus.cc/php/huya.php?id=23864480
+#EXTINF:-1 group-title="港澳台",香港片系列
+https://isus.cc/php/huya.php?id=29982660
 #EXTINF:-1 group-title="港澳台",台湾剧专区
 https://isus.cc/php/huya.php?id=11342436
 #EXTINF:-1 group-title="體育節目",足球小将
@@ -735,8 +719,6 @@ http://cdn6.163189.xyz/163189/yzwx
 http://67.220.67.246:2347/livehttpplay?channel_id=30023
 #EXTINF:-1 group-title="港澳台",HOY77
 http://cdn6.163189.xyz/163189/hoy
-#EXTINF:-1 group-title="港澳台",东森电影
-http://iptv.4666888.xyz/iptv2A.php?id=48
 #EXTINF:-1 group-title="港澳台",RTHK 32
 http://67.220.67.246:2347/livehttpplay?channel_id=20203
 #EXTINF:-1 group-title="港澳台",纬来电影
