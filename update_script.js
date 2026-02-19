@@ -7,22 +7,22 @@ const getGroupAndFilter = (name) => {
   const n = name.toUpperCase();
   
   // A. 優先識別港澳台 (擴大關鍵字範圍以增加獲取量)
-  if (/翡翠|TVB|J2|鳳凰|香港|澳門|台灣|HK|TW|中天|東森|緯來|年代|民視|三立|八大|TVBS|華視|台視|中視|龍祥|DISCOVERY|HBO|FOX|CNN/.test(n)) {
+  if (/翡翠|TVB|TVB plus|Viu|鳳凰|香港|澳門|台灣|HK|TW|中天|中天|東森|东森|緯來|纬来|年代|民視|RHK|三立|八大|TVBS|无线|華視|华视|台视|HOY|Now|中视|凤凰|台視|中視|龍祥|DISCOVERY|HBO|FOX|CNN/.test(n)) {
     return "港澳台";
   }
   
   // B. 識別央視
-  if (n.includes("CCTV") || n.includes("央視")) {
+  if (n.includes("CCTV") ||n.includes("央视") || n.includes("央視")) {
     return "央視頻道";
   }
   
   // C. 識別體育
-  if (n.includes("體育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星") || n.includes("足球") || n.includes("賽馬")) {
+  if (n.includes("體育") ||n.includes("体育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星") || n.includes("足球") ||  n.includes("广东体育") || n.includes("賽馬")) {
     return "體育節目";
   }
 
   // D. 識別省級衛視
-  if (n.includes("衛視")) {
+  if (n.includes("衛視") || n.includes("卫视") ) {
     return "省級衛視";
   }
   
@@ -37,6 +37,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
   "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
+  "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
   "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u"
