@@ -135,6 +135,11 @@
     "group": "其他頻道"
   },
   {
+    "name": "云南 Ⅰ 文山综合台 (1080p) [Not 24/7]",
+    "url": "http://tvdrs.wsrtv.com.cn:8100/channellive/ch1.flv",
+    "group": "其他頻道"
+  },
+  {
     "name": "余姚姚江文化 (576p)",
     "url": "https://l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8",
     "group": "其他頻道"
@@ -287,6 +292,31 @@
   {
     "name": "浙江钱江",
     "url": "https://ali-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8",
+    "group": "其他頻道"
+  },
+  {
+    "name": "白城新闻综合 [Geo-blocked]",
+    "url": "https://stream2.jlntv.cn/baicheng1/sd/live.m3u8",
+    "group": "其他頻道"
+  },
+  {
+    "name": "白山新闻综合 [Geo-blocked]",
+    "url": "https://stream2.jlntv.cn/baishan1/sd/live.m3u8",
+    "group": "其他頻道"
+  },
+  {
+    "name": "福州广播电视台新闻综合频道 (FZTV-1) (1080p)",
+    "url": "http://live.zohi.tv/video/s10001-fztv-1/index.m3u8",
+    "group": "其他頻道"
+  },
+  {
+    "name": "福州广播电视台都市生活频道 (FZTV-3) (1080p)",
+    "url": "http://live.zohi.tv/video/s10001-fztv-3/index.m3u8",
+    "group": "其他頻道"
+  },
+  {
+    "name": "福州电视台少儿频道 (FZTV-少儿) (1080p)",
+    "url": "http://live.zohi.tv/video/s10001-fztv-4/index.m3u8",
     "group": "其他頻道"
   },
   {
