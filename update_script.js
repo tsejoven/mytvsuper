@@ -49,7 +49,10 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u",
 
    // 非 GitHub 網址
-"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",];
+"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",
+"https://php.946985.filegear-sg.me/jackTV.m3u",
+"https://ds65.tv1288.xyz",
+];
 
 async function update() {
   console.log("開始抓取並過濾直播源...");
