@@ -43,6 +43,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/Nowsports.m3u",
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u",
    "https://github.com/fafa002/yf2025/blob/main/yiyifafa.txt",
+  "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
