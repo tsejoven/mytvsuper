@@ -7,7 +7,7 @@ const getGroupAndFilter = (name) => {
   const n = name.toUpperCase();
   
   // A. 優先識別港澳台 (擴大關鍵字範圍以增加獲取量)
-  if (/翡翠|TVB|TVB plus|Viu|ViuTV|鳳凰|香港|澳門|台灣|台湾|HK|TW|中天|VIU|東森|东森|緯來|纬来|公视|民视|好莱坞|民視|RHK|三立|八大|TVBS|无线|有线|華視|华视|台视|HOY|Now|NOW|now|中视|凤凰|台視|中視|龍祥|DISCOVERY|HBO|FOX|CNN/.test(n)) {
+  if (/翡翠|TVB|TVB plus|Viu|ViuTV|鳳凰|香港|澳門|台灣|台湾|HK|TW|中天|VIU|東森|东森|緯來|纬来|公视|民视|好莱坞|民視|RHK|三立|八大|TVBS|无线|有线|華視|华视|台视|HOY|Now|NOW|now|ELta|ELTA|中视|凤凰|台視|中視|龍祥|DISCOVERY|HBO|HBo|FOX|CNN/.test(n)) {
     return "港澳台";
   }
   
@@ -42,6 +42,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/CricHD.m3u",
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/Nowsports.m3u",
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u",
+   "https://github.com/fafa002/yf2025/blob/main/yiyifafa.txt",
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
   "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
