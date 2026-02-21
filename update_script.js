@@ -56,14 +56,20 @@ const SOURCE_URLS = [
 ];
 
 async function update() {
-  console.log("🚀 開始抓取並執行質量優化...");
+  console.log("🚀 啟動全能提取與質量優化引擎...");
   let rawChannels = [];
+
+  const commonHeaders = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+    'Accept': '*/*'
+  };
 
   for (const url of SOURCE_URLS) {
     try {
+      console.log(`📡 正在探索源: ${url}`);
       const res = await axios.get(url, { 
-        timeout: 20000, 
-        headers: { 'User-Agent': 'Mozilla/5.0' }
+        timeout: 25000, 
+        headers: commonHeaders
       });
       
       const lines = res.data.split('\n');
@@ -82,46 +88,44 @@ async function update() {
         }
       }
     } catch (e) {
-      console.error(`⚠️ 跳過源: ${url} | ${e.message}`);
+      console.error(`⚠️ 跳過不可達源: ${url.substring(0, 30)}... | 原因: ${e.message}`);
     }
   }
 
-  // 初步去重（網址相同則視為同一個）
+  // 初步去重
   const uniqueUrlMap = new Map();
   rawChannels.forEach(c => uniqueUrlMap.set(c.url, c));
   const uniqueChannels = Array.from(uniqueUrlMap.values());
 
-  console.log(`📡 正在校驗 ${uniqueChannels.length} 個頻道的質量...`);
+  console.log(`📊 抓取完成，進入校驗階段 (共 ${uniqueChannels.length} 條線路)`);
 
-  // --- 3. 帶延遲測試的併發校驗 ---
+  // --- 3. 延遲測試與有效性校驗 ---
   const testedChannels = [];
-  const batchSize = 15; 
+  const batchSize = 10; // 降低併發數以提高非 GitHub 源的成功率
 
   for (let i = 0; i < uniqueChannels.length; i += batchSize) {
     const batch = uniqueChannels.slice(i, i + batchSize);
     const results = await Promise.all(batch.map(async (channel) => {
       const start = Date.now();
       try {
+        // 使用 GET 請求並限制讀取時間，這對某些特殊伺服器更有效
         await axios.get(channel.url, { 
-          timeout: 5000, 
-          headers: { 'User-Agent': 'Mozilla/5.0' },
-          responseType: 'stream' // 只讀取頭部以節省流量
+          timeout: 6000, 
+          headers: commonHeaders,
+          responseType: 'stream'
         });
-        const latency = Date.now() - start;
-        return { ...channel, latency }; // 記錄延遲時間
+        return { ...channel, latency: Date.now() - start };
       } catch (e) {
         return null;
       }
     }));
     
     testedChannels.push(...results.filter(r => r !== null));
-    console.log(`✅ 進度: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length}`);
+    console.log(`🔄 校驗進度: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length}`);
   }
 
-  // --- 4. 同名合併與質量排序邏析 ---
-  // 使用 Map 將相同名字的頻道聚合在一起
+  // --- 4. 同名聚合與延遲排序 ---
   const mergedMap = new Map();
-
   testedChannels.forEach(channel => {
     if (!mergedMap.has(channel.name)) {
       mergedMap.set(channel.name, []);
@@ -131,13 +135,10 @@ async function update() {
 
   let finalM3U = "#EXTM3U x-tvg-url=\"http://epg.51zmt.top:8000/e.xml\"\n";
   
-  // 遍歷每個頻道名稱
   mergedMap.forEach((sources, name) => {
-    // 按延遲升序排序（延遲越小越靠前，質量越高）
+    // 質量排序：延遲越小越靠前
     sources.sort((a, b) => a.latency - b.latency);
 
-    // 將同名頻道的不同來源依次寫入 M3U
-    // 這樣在播放器中，同一個頻道會有「多條路線」，且最快的那條在第一位
     sources.forEach((s, index) => {
       const displayName = index === 0 ? name : `${name} (線路${index + 1})`;
       finalM3U += `#EXTINF:-1 group-title="${s.group}" tvg-name="${name}",${displayName}\n${s.url}\n`;
@@ -149,12 +150,12 @@ async function update() {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
   fs.writeFileSync(path.join(dir, 'subscription.m3u'), finalM3U);
 
-  console.log(`✨ 優化完成！`);
-  console.log(`📊 最終導出頻道名稱數: ${mergedMap.size}`);
-  console.log(`🔗 總計有效線路數: ${testedChannels.length}`);
+  console.log(`✅ 處理完成！`);
+  console.log(`總計保留頻道數: ${mergedMap.size}`);
+  console.log(`總計有效線路數: ${testedChannels.length}`);
 }
 
 update().catch(err => {
-  console.error("❌ 運行失敗:", err);
+  console.error("❌ 嚴重錯誤:", err);
 });
 
