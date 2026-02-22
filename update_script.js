@@ -13,25 +13,24 @@ const getGroupAndFilter = (name) => {
   }
   
   // B. 識別央視
-  if (n.includes("CCTV") ||n.includes("央视") || n.includes("央視")) {
+  if (n.includes("CCTV") || n.includes("央视") || n.includes("央視")) {
     return "央視頻道";
   }
   
   // C. 識別體育
-  if (n.includes("體育") ||n.includes("体育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星") || n.includes("足球") ||  n.includes("广东体育") || n.includes("賽馬")) {
+  if (n.includes("體育") || n.includes("体育") || n.includes("SPORT") || n.includes("NBA") || n.includes("五星") || n.includes("足球") || n.includes("广东体育") || n.includes("賽馬")) {
     return "體育節目";
   }
 
   // D. 識別省級衛視
-  if (n.includes("衛視") || n.includes("卫视") ) {
+  if (n.includes("衛視") || n.includes("卫视")) {
     return "省級衛視";
   }
   
-  // E. 不符合以上條件的全部丟棄 (回傳 null)
   return null;
 };
 
-/ --- 2. 數據源列表 ---
+// --- 2. 數據源列表 (已修正註釋語法) ---
 const SOURCE_URLS = [
   "https://php.946985.filegear-sg.me/jackTV.m3u",
   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
@@ -82,22 +81,22 @@ async function update() {
 
   // --- 第二步：高速併發校驗 ---
   const testedChannels = [];
-  const batchSize = 50; // 提升併發數
+  const batchSize = 50; 
   
   for (let i = 0; i < uniqueChannels.length; i += batchSize) {
     const batch = uniqueChannels.slice(i, i + batchSize);
     const results = await Promise.all(batch.map(async (channel) => {
       const start = Date.now();
       try {
-        // 使用 HEAD 請求，大幅提升速度
+        // 使用 HEAD 請求快速檢測
         await axios.head(channel.url, { 
-          timeout: 3000, // 3秒不響應就放棄，這種源通常不能看
+          timeout: 3000, 
           headers: commonHeaders,
           validateStatus: (status) => status >= 200 && status < 400
         });
         return { ...channel, latency: Date.now() - start };
       } catch (e) {
-        // 如果 HEAD 不支持，嘗試極簡 GET
+        // 如果 HEAD 失敗，嘗試小流量 GET
         try {
           await axios.get(channel.url, { timeout: 2000, headers: commonHeaders, responseType: 'stream' });
           return { ...channel, latency: Date.now() - start };
@@ -108,7 +107,7 @@ async function update() {
     }));
     
     testedChannels.push(...results.filter(r => r !== null));
-    console.log(`🔄 進度: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length} (有效: ${testedChannels.length})`);
+    console.log(`🔄 校驗進度: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length} (有效: ${testedChannels.length})`);
   }
 
   // --- 第三步：聚合與排序 ---
