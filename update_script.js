@@ -42,16 +42,13 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/CricHD.m3u",
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/Nowsports.m3u",
   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u",
-   "https://github.com/fafa002/yf2025/blob/main/yiyifafa.txt",
-  "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
+   "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
   // 增加針對港澳台的特定源
-  "https://raw.githubusercontent.com/Moexin/IPTV/main/TV.m3u",
-  "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
+   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
   "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u",
 
    // 非 GitHub 網址
-"https://gh-proxy.org/https://raw.githubusercontent.com/fafa002/yf2025/refs/heads/main/yiyifafa.txt",
 "https://php.946985.filegear-sg.me/jackTV.m3u",
 "https://ds65.tv1288.xyz",
 ];
