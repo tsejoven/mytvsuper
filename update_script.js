@@ -40,6 +40,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
   "https://raw.githubusercontent.com/Free-TV/IPTV/refs/heads/master/playlist.m3u8",
   "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
+   "https://raw.githubusercontent.com/alantang1977/X/refs/heads/main/live/live_ipv4.m3u",
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
    "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u"
 ];
