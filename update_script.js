@@ -34,7 +34,6 @@ const getGroupAndFilter = (name) => {
 const SOURCE_URLS = [
   "https://php.946985.filegear-sg.me/jackTV.m3u",
   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
-  "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
   "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
@@ -42,8 +41,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/Free-TV/IPTV/refs/heads/master/playlist.m3u8",
   "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
   "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
-  "https://raw.githubusercontent.com/billy21/tv-list/master/test.m3u",
-  "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u"
+   "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u"
 ];
 
 async function update() {
