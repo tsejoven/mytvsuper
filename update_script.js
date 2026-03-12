@@ -35,7 +35,7 @@ const SOURCE_URLS = [
   "https://php.946985.filegear-sg.me/jackTV.m3u",
   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
-  "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv."
+  "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
    "https://raw.githubusercontent.com/250992941/tv2/refs/heads/main/assets/freetv/freetv_output_other.txt",
   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
   "https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
