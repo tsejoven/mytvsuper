@@ -36,6 +36,7 @@ const SOURCE_URLS = [
   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
   "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
   "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
+  "https://raw.githubusercontent.com/250992941/tv2/refs/heads/main/assets/freetv/freetv_output_other.txt",
   "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
   "https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
   "https://raw.githubusercontent.com/Free-TV/IPTV/refs/heads/master/playlist.m3u8",
