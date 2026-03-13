@@ -2,21 +2,21 @@
 #EXTINF:-1 group-title="體育節目" tvg-name="nba tv",nba tv
 https://t.freetv.fun/live/nba-tv-2.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="nba tv",nba tv (線路2)
-https://t.freetv.fun/live/nba-tv-1.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="nba tv",nba tv (線路3)
 https://t.freetv.fun/live/nba-tv.m3u8
+#EXTINF:-1 group-title="體育節目" tvg-name="nba tv",nba tv (線路3)
+https://t.freetv.fun/live/nba-tv-1.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲
-https://t.freetv.fun/live/tvbsya-zhou-4.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路2)
-https://t.freetv.fun/live/tvbsya-zhou-1.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路3)
-https://t.freetv.fun/live/tvbsya-zhou-5.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路4)
-https://t.freetv.fun/live/tvbsya-zhou-7.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路5)
 https://t.freetv.fun/live/tvbsya-zhou-6.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路6)
+#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路2)
+https://t.freetv.fun/live/tvbsya-zhou-7.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路3)
 https://t.freetv.fun/live/tvbsya-zhou-2.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路4)
+https://t.freetv.fun/live/tvbsya-zhou-5.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路5)
+https://t.freetv.fun/live/tvbsya-zhou-1.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="tvbs亚洲",tvbs亚洲 (線路6)
+https://t.freetv.fun/live/tvbsya-zhou-4.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="tvbs亞洲",tvbs亞洲
 https://t.freetv.fun/live/tvbsya-zhou.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="tvb星河",tvb星河
@@ -26,37 +26,37 @@ https://t.freetv.fun/live/tvbxing-he-2.m3u8
 #EXTINF:-1 group-title="省級衛視" tvg-name="东方卫视高清",东方卫视高清
 https://t.freetv.fun/live/dong-fang-wei-shi-gao-qing.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-8.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路2)
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-3.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路3)
 https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-4.m3u8
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路2)
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-8.m3u8
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路3)
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-3.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路4)
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-7.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-4.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路5)
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-7.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路6)
-https://t.freetv.fun/live/yan-dong-ti-yu.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路7)
 https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-6.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路8)
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-1.m3u8
-#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路9)
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路7)
 https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-5.m3u8
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路8)
+https://t.freetv.fun/live/yan-dong-ti-yu-9.m3u8
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路9)
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-10.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路10)
 https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-2.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路11)
-https://t.freetv.fun/live/yan-dong-ti-yu-9.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-6.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路12)
-https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-10.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing-1.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路13)
-https://t.freetv.fun/live/yan-dong-ti-yu-3.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路14)
-https://t.freetv.fun/live/yan-dong-ti-yu-4.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-3.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路15)
 https://t.freetv.fun/live/yan-dong-ti-yu-5.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路16)
-https://t.freetv.fun/live/yan-dong-ti-yu-6.m3u8
+https://t.freetv.fun/live/yan-dong-ti-yu-gao-qing.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路17)
 https://t.freetv.fun/live/yan-dong-ti-yu-2.m3u8
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路18)
@@ -64,11 +64,13 @@ http://cdn2.163189.xyz/live/gdty/stream.m3u8$IPV4•线路2
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路19)
 http://www.3344.uk:8888/rtp/239.77.0.6:5146$IPV4•线路11
 #EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路20)
+http://cdn2.132.us.kg/live/gdty/stream.m3u8$IPV4•线路7
+#EXTINF:-1 group-title="體育節目" tvg-name="广东体育",广东体育 (線路21)
 https://t.freetv.fun/live/yan-dong-ti-yu-11.php
 #EXTINF:-1 group-title="港澳台" tvg-name="民视台湾",民视台湾
-https://t.freetv.fun/live/min-shi-tai-wan.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="民视台湾",民视台湾 (線路2)
 https://t.freetv.fun/live/min-shi-tai-wan-1.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="民视台湾",民视台湾 (線路2)
+https://t.freetv.fun/live/min-shi-tai-wan.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="民视新闻",民视新闻
 https://t.freetv.fun/live/min-shi-xin-wen.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="民视第一",民视第一
@@ -76,23 +78,23 @@ https://t.freetv.fun/live/min-shi-di-yi.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="民视第一",民视第一 (線路2)
 https://t.freetv.fun/live/min-shi-di-yi-1.m3u8
 #EXTINF:-1 group-title="省級衛視" tvg-name="海峡卫视",海峡卫视
-https://t.freetv.fun/live/hai-xia-wei-shi.m3u8
-#EXTINF:-1 group-title="省級衛視" tvg-name="海峡卫视",海峡卫视 (線路2)
 https://t.freetv.fun/live/hai-xia-wei-shi-1.m3u8
+#EXTINF:-1 group-title="省級衛視" tvg-name="海峡卫视",海峡卫视 (線路2)
+https://t.freetv.fun/live/hai-xia-wei-shi.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="緯來電影",緯來電影
 https://t.freetv.fun/live/wei-lai-dian-ying-1.php
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠
-https://t.freetv.fun/live/fei-cui-7.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路2)
 https://t.freetv.fun/live/fei-cui-10.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路2)
+https://t.freetv.fun/live/fei-cui-3.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路3)
 https://t.freetv.fun/live/fei-cui-1.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路4)
-https://t.freetv.fun/live/fei-cui-3.m3u8
+https://t.freetv.fun/live/fei-cui-7.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路5)
-https://t.freetv.fun/live/fei-cui-9.m3u8
-#EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路6)
 https://t.freetv.fun/live/fei-cui-5.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路6)
+https://t.freetv.fun/live/fei-cui-9.m3u8
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路7)
 https://t.freetv.fun/live/fei-cui-2.php
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠",翡翠 (線路8)
@@ -101,8 +103,14 @@ https://t.freetv.fun/live/fei-cui-8.php
 https://t.freetv.fun/live/fei-cui-4.php
 #EXTINF:-1 group-title="港澳台" tvg-name="翡翠台",翡翠台
 https://t.freetv.fun/live/fei-cui-tai.m3u8
+#EXTINF:-1 group-title="港澳台" tvg-name="翡翠台",翡翠台 (線路2)
+http://aktv.top/AKTV/live/aktv/null/AKTV.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="央視頻道" tvg-name="CCTV-13 (1080p)",CCTV-13 (1080p)
 https://cdn3.163189.xyz/163189/cctv13
+#EXTINF:-1 group-title="省級衛視" tvg-name="大湾区卫视",大湾区卫视
+http://www.3344.uk:8888/rtp/239.77.0.9:5146$IPV4•线路12
+#EXTINF:-1 group-title="省級衛視" tvg-name="大湾区卫视",大湾区卫视 (線路2)
+http://www.3344.uk:8888/rtp/239.77.1.12:5146$IPV4•线路13
 #EXTINF:-1 group-title="央視頻道" tvg-name="CCTV2",CCTV2
 http://120.76.248.139/live/bfgd/4200000061.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="央視頻道" tvg-name="CCTV3",CCTV3
@@ -140,22 +148,42 @@ http://120.76.248.139/live/bfgd/4200000133.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="央視頻道" tvg-name="CCTV15",CCTV15 (線路2)
 https://www.freetv.top/migu/673168223.m3u8$IPV4•线路2
 #EXTINF:-1 group-title="央視頻道" tvg-name="CCTV17",CCTV17
-http://120.76.248.139/live/bfgd/4200000204.m3u8$IPV4•线路5
-#EXTINF:-1 group-title="央視頻道" tvg-name="CCTV17",CCTV17 (線路2)
 http://drive.mxmy.net:8888/udp/239.3.1.151:8144$IPV4•线路7
+#EXTINF:-1 group-title="央視頻道" tvg-name="CCTV17",CCTV17 (線路2)
+http://120.76.248.139/live/bfgd/4200000204.m3u8$IPV4•线路5
+#EXTINF:-1 group-title="省級衛視" tvg-name="浙江卫视",浙江卫视
+https://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8$IPV4•线路9
+#EXTINF:-1 group-title="省級衛視" tvg-name="浙江卫视",浙江卫视 (線路2)
+http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8$IPV4•线路6
+#EXTINF:-1 group-title="省級衛視" tvg-name="浙江卫视",浙江卫视 (線路3)
+http://ali-m-l.cztv.com:80/channels/lantian/channel001/1080p.m3u8$IPV4•线路8
+#EXTINF:-1 group-title="省級衛視" tvg-name="浙江卫视",浙江卫视 (線路4)
+http://tvlist.top/jd/index.php$IPV4•线路12
+#EXTINF:-1 group-title="省級衛視" tvg-name="湖南卫视",湖南卫视
+http://antvlive.ab5c6921.cdnviet.com/antv/playlist.m3u8$IPV4•线路11
 #EXTINF:-1 group-title="省級衛視" tvg-name="东方卫视",东方卫视
 http://120.76.248.139/live/bfgd/4200000093.m3u8$IPV4•线路8
+#EXTINF:-1 group-title="省級衛視" tvg-name="东方卫视",东方卫视 (線路2)
+https://py.doube.eu.org/ysp/2024054503/600002483$IPV4•线路9
 #EXTINF:-1 group-title="省級衛視" tvg-name="江苏卫视",江苏卫视
+https://py.doube.eu.org/ysp/2024171103/600002521$IPV4•线路16
+#EXTINF:-1 group-title="省級衛視" tvg-name="江苏卫视",江苏卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000085.m3u8$IPV4•线路9
 #EXTINF:-1 group-title="省級衛視" tvg-name="山东卫视",山东卫视
 http://120.76.248.139/live/bfgd/4200000099.m3u8$IPV4•线路6
 #EXTINF:-1 group-title="省級衛視" tvg-name="山东卫视",山东卫视 (線路2)
 https://www.yangshipin.cn/tv/home$IPV4•线路10
 #EXTINF:-1 group-title="省級衛視" tvg-name="北京卫视",北京卫视
+https://py.doube.eu.org/ysp/2024052703/600002309$IPV4•线路11
+#EXTINF:-1 group-title="省級衛視" tvg-name="北京卫视",北京卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000083.m3u8$IPV4•线路10
 #EXTINF:-1 group-title="省級衛視" tvg-name="安徽卫视",安徽卫视
+https://py.doube.eu.org/ysp/2024171403/600002532$IPV4•线路8
+#EXTINF:-1 group-title="省級衛視" tvg-name="安徽卫视",安徽卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000096.m3u8$IPV4•线路5
 #EXTINF:-1 group-title="省級衛視" tvg-name="重庆卫视",重庆卫视
+https://py.doube.eu.org/ysp/2024061103/600002531$IPV4•线路10
+#EXTINF:-1 group-title="省級衛視" tvg-name="重庆卫视",重庆卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000107.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="省級衛視" tvg-name="四川卫视",四川卫视
 https://t.freetv.fun/live/si-chuan-wei-shi-10.php$IPV4•线路4
@@ -166,11 +194,15 @@ https://t.freetv.fun/live/si-chuan-wei-shi-4.php$IPV4•线路3
 #EXTINF:-1 group-title="省級衛視" tvg-name="东南卫视",东南卫视
 http://120.76.248.139/live/bfgd/4200000483.m3u8$IPV4•线路8
 #EXTINF:-1 group-title="省級衛視" tvg-name="深圳卫视",深圳卫视
+https://py.doube.eu.org/ysp/2024061303/600002481$IPV4•线路10
+#EXTINF:-1 group-title="省級衛視" tvg-name="深圳卫视",深圳卫视 (線路2)
+http://z.b.bkpcp.top/m.php$IPV4•线路4
+#EXTINF:-1 group-title="省級衛視" tvg-name="深圳卫视",深圳卫视 (線路3)
 http://120.76.248.139/live/bfgd/4200000100.m3u8$IPV4•线路8
 #EXTINF:-1 group-title="省級衛視" tvg-name="广东卫视",广东卫视
-http://www.3344.uk:8888/rtp/239.77.1.2:5146$IPV4•线路29
-#EXTINF:-1 group-title="省級衛視" tvg-name="广东卫视",广东卫视 (線路2)
 http://www.3344.uk:8888/rtp/239.77.0.2:5146$IPV4•线路28
+#EXTINF:-1 group-title="省級衛視" tvg-name="广东卫视",广东卫视 (線路2)
+http://www.3344.uk:8888/rtp/239.77.1.2:5146$IPV4•线路29
 #EXTINF:-1 group-title="省級衛視" tvg-name="广东卫视",广东卫视 (線路3)
 http://120.76.248.139/live/bfgd/4200000092.m3u8$IPV4•线路9
 #EXTINF:-1 group-title="省級衛視" tvg-name="广东卫视",广东卫视 (線路4)
@@ -184,17 +216,25 @@ https://t.freetv.fun/live/gan-su-wei-shi-3.m3u8$IPV4•线路3
 #EXTINF:-1 group-title="省級衛視" tvg-name="甘肃卫视",甘肃卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000119.m3u8$IPV4•线路8
 #EXTINF:-1 group-title="省級衛視" tvg-name="甘肃卫视",甘肃卫视 (線路3)
+https://py.doube.eu.org/ysp/2025561703/600190408$IPV4•线路9
+#EXTINF:-1 group-title="省級衛視" tvg-name="甘肃卫视",甘肃卫视 (線路4)
 https://t.freetv.fun/live/gan-su-wei-shi.php$IPV4•线路2
 #EXTINF:-1 group-title="省級衛視" tvg-name="贵州卫视",贵州卫视
-https://t.freetv.fun/live/gui-zhou-wei-shi-5.m3u8$IPV4•线路2
-#EXTINF:-1 group-title="省級衛視" tvg-name="贵州卫视",贵州卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000101.m3u8$IPV4•线路5
+#EXTINF:-1 group-title="省級衛視" tvg-name="贵州卫视",贵州卫视 (線路2)
+https://t.freetv.fun/live/gui-zhou-wei-shi-5.m3u8$IPV4•线路2
+#EXTINF:-1 group-title="省級衛視" tvg-name="贵州卫视",贵州卫视 (線路3)
+https://py.doube.eu.org/ysp/2024061603/600002490$IPV4•线路8
 #EXTINF:-1 group-title="省級衛視" tvg-name="河北卫视",河北卫视
 http://120.76.248.139/live/bfgd/4200000108.m3u8$IPV4•线路5
 #EXTINF:-1 group-title="省級衛視" tvg-name="河北卫视",河北卫视 (線路2)
+https://py.doube.eu.org/ysp/2024171503/600002493$IPV4•线路10
+#EXTINF:-1 group-title="省級衛視" tvg-name="河北卫视",河北卫视 (線路3)
 http://www.sjwyp.com:4022/rtp/239.254.200.174:6000$IPV4•线路12
 #EXTINF:-1 group-title="省級衛視" tvg-name="河南卫视",河南卫视
 http://120.76.248.139/live/bfgd/4200000339.m3u8$IPV4•线路8
+#EXTINF:-1 group-title="省級衛視" tvg-name="河南卫视",河南卫视 (線路2)
+https://py.doube.eu.org/ysp/2024059703/600002525$IPV4•线路11
 #EXTINF:-1 group-title="省級衛視" tvg-name="黑龙江卫视",黑龙江卫视
 http://120.76.248.139/live/bfgd/4200000095.m3u8$IPV4•线路5
 #EXTINF:-1 group-title="省級衛視" tvg-name="湖北卫视",湖北卫视
@@ -202,28 +242,30 @@ http://120.76.248.139/live/bfgd/4200000102.m3u8$IPV4•线路6
 #EXTINF:-1 group-title="省級衛視" tvg-name="湖北卫视",湖北卫视 (線路2)
 http://117.72.45.109:3577/947472496$IPV4•线路4
 #EXTINF:-1 group-title="省級衛視" tvg-name="江西卫视",江西卫视
-http://117.72.45.109:3577/783847495$IPV4•线路4
-#EXTINF:-1 group-title="省級衛視" tvg-name="江西卫视",江西卫视 (線路2)
 http://120.76.248.139/live/bfgd/4200000098.m3u8$IPV4•线路7
+#EXTINF:-1 group-title="省級衛視" tvg-name="江西卫视",江西卫视 (線路2)
+http://117.72.45.109:3577/783847495$IPV4•线路4
 #EXTINF:-1 group-title="省級衛視" tvg-name="吉林卫视",吉林卫视
-http://120.76.248.139/live/bfgd/4200000097.m3u8$IPV4•线路8
-#EXTINF:-1 group-title="省級衛視" tvg-name="吉林卫视",吉林卫视 (線路2)
 http://117.72.45.109:3577/947472500$IPV4•线路3
+#EXTINF:-1 group-title="省級衛視" tvg-name="吉林卫视",吉林卫视 (線路2)
+http://120.76.248.139/live/bfgd/4200000097.m3u8$IPV4•线路8
 #EXTINF:-1 group-title="省級衛視" tvg-name="内蒙古卫视",内蒙古卫视
 http://120.76.248.139/live/bfgd/4200000110.m3u8$IPV4•线路2
 #EXTINF:-1 group-title="省級衛視" tvg-name="辽宁卫视",辽宁卫视
 http://120.76.248.139/live/bfgd/4200000058.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="省級衛視" tvg-name="辽宁卫视",辽宁卫视 (線路2)
-http://120.76.248.139/live/bfgd/4200000185.m3u8$IPV4•线路6
-#EXTINF:-1 group-title="省級衛視" tvg-name="辽宁卫视",辽宁卫视 (線路3)
 http://120.76.248.139/live/bfgd/4200000141.m3u8$IPV4•线路5
+#EXTINF:-1 group-title="省級衛視" tvg-name="辽宁卫视",辽宁卫视 (線路3)
+http://120.76.248.139/live/bfgd/4200000185.m3u8$IPV4•线路6
 #EXTINF:-1 group-title="省級衛視" tvg-name="宁夏卫视",宁夏卫视
 http://120.76.248.139/live/bfgd/4200000118.m3u8$IPV4•线路1
 #EXTINF:-1 group-title="省級衛視" tvg-name="青海卫视",青海卫视
 http://120.76.248.139/live/bfgd/4200000111.m3u8$IPV4•线路4
 #EXTINF:-1 group-title="省級衛視" tvg-name="海南卫视",海南卫视
-http://120.76.248.139/live/bfgd/4200000473.m3u8$IPV4•线路3
+https://py.doube.eu.org/ysp/2024055603/600002506$IPV4•线路12
 #EXTINF:-1 group-title="省級衛視" tvg-name="海南卫视",海南卫视 (線路2)
+http://120.76.248.139/live/bfgd/4200000473.m3u8$IPV4•线路3
+#EXTINF:-1 group-title="省級衛視" tvg-name="海南卫视",海南卫视 (線路3)
 http://vapi.91kds.cc/live1/hitv.m3u8$IPV4•线路9
 #EXTINF:-1 group-title="省級衛視" tvg-name="新疆卫视",新疆卫视
 http://120.76.248.139/live/bfgd/4200000150.m3u8$IPV4•线路4
@@ -232,25 +274,23 @@ http://218.84.12.186:8001/hls/main/playlist.m3u8$IPV4•线路5
 #EXTINF:-1 group-title="省級衛視" tvg-name="云南卫视",云南卫视
 https://t.freetv.fun/live/yun-nan-wei-shi-2.m3u8$IPV4•线路2
 #EXTINF:-1 group-title="省級衛視" tvg-name="西藏卫视",西藏卫视
-http://120.76.248.139/live/bfgd/4200000121.m3u8$IPV4•线路7
-#EXTINF:-1 group-title="省級衛視" tvg-name="西藏卫视",西藏卫视 (線路2)
 https://t.freetv.fun/live/xi-cang-wei-shi-1.m3u8$IPV4•线路3
+#EXTINF:-1 group-title="省級衛視" tvg-name="西藏卫视",西藏卫视 (線路2)
+http://120.76.248.139/live/bfgd/4200000121.m3u8$IPV4•线路7
 #EXTINF:-1 group-title="省級衛視" tvg-name="兵团卫视",兵团卫视
 http://120.76.248.139/live/bfgd/4200000124.m3u8$IPV4•线路6
 #EXTINF:-1 group-title="省級衛視" tvg-name="农林卫视",农林卫视
 http://120.76.248.139/live/bfgd/4200000122.m3u8$IPV4•线路1
 #EXTINF:-1 group-title="省級衛視" tvg-name="延边卫视",延边卫视
 http://120.76.248.139/live/bfgd/4200000117.m3u8$IPV4•线路4
-#EXTINF:-1 group-title="省級衛視" tvg-name="延边卫视",延边卫视 (線路2)
-http://l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8$IPV4•线路3
 #EXTINF:-1 group-title="港澳台" tvg-name="TVBS新闻",TVBS新闻
 http://aktv.top/AKTV/live/aktv/tvbs-1/AKTV.m3u8$IPV4
 #EXTINF:-1 group-title="港澳台" tvg-name="中天亚洲台",中天亚洲台
 http://aktv.top/AKTV/live/aktv/null-12/AKTV.m3u8$IPV4•线路1
+#EXTINF:-1 group-title="港澳台" tvg-name="中天综合台",中天综合台
+https://m3u8.channel.dzsm.com/nmip-media/channellive/channel104601/playlist.m3u8$IPV4
 #EXTINF:-1 group-title="港澳台" tvg-name="TVB Plus",TVB Plus
 http://aktv.top/AKTV/live/aktv/tvbplus/AKTV.m3u8$IPV4•线路1
-#EXTINF:-1 group-title="港澳台" tvg-name="TVB Plus",TVB Plus (線路2)
-https://cdn6.101.qzz.io/163189/tvbp$IPV4•线路3
 #EXTINF:-1 group-title="港澳台" tvg-name="RTHK 31",RTHK 31
 https://cdn.163189.xyz/163189/rthk31$IPV4
 #EXTINF:-1 group-title="港澳台" tvg-name="RTHK 32",RTHK 32
@@ -258,8 +298,8 @@ https://cdn.163189.xyz/163189/rthk32$IPV4
 #EXTINF:-1 group-title="港澳台" tvg-name="凤凰香港",凤凰香港
 http://aktv.top/AKTV/live/aktv/null-5/AKTV.m3u8$IPV4•线路5
 #EXTINF:-1 group-title="港澳台" tvg-name="凤凰香港",凤凰香港 (線路2)
-https://cdn6.101.qzz.io/163189/fhhk$IPV4•线路7
-#EXTINF:-1 group-title="港澳台" tvg-name="凤凰香港",凤凰香港 (線路3)
 http://cdn6.163189.xyz/163189/fhhk$IPV4•线路4
+#EXTINF:-1 group-title="港澳台" tvg-name="凤凰香港",凤凰香港 (線路3)
+https://cdn6.101.qzz.io/163189/fhhk$IPV4•线路7
 #EXTINF:-1 group-title="省級衛視" tvg-name="陕西卫视咪咕",陕西卫视咪咕
 https://www.freetv.top/migu/738910838.m3u8$IPV4•线路1
