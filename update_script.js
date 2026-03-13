@@ -3,10 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-// 忽略 SSL 證書錯誤
+// 使用與舊版一致的 Agent 設定
 const agent = new https.Agent({ rejectUnauthorized: false });
 
-// --- 1. 智慧分組邏輯 ---
+// 智慧分組邏輯 (保留舊版的高兼容關鍵字)
 const getGroupAndFilter = (name) => {
   if (!name) return null;
   const n = name.toUpperCase();
@@ -17,7 +17,6 @@ const getGroupAndFilter = (name) => {
   return null;
 };
 
-// --- 2. 數據源列表 ---
 const SOURCE_URLS = [
   "https://php.946985.filegear-sg.me/jackTV.m3u",
   "https://raw.githubusercontent.com/250992941/tv2/refs/heads/main/assets/freetv/freetv_output_other.txt",
@@ -28,7 +27,7 @@ const SOURCE_URLS = [
 ];
 
 async function update() {
-  console.log("🚀 啟動流式狀態機校驗引擎 (V6.0)...");
+  console.log("🚀 執行優化平衡版校驗 (解析邏輯回歸舊版)...");
   let rawChannels = [];
   const commonHeaders = { 'User-Agent': 'Mozilla/5.0' };
 
@@ -36,84 +35,60 @@ async function update() {
     try {
       console.log(`📡 抓取源: ${url.substring(0, 50)}...`);
       const res = await axios.get(url, { timeout: 20000, headers: commonHeaders, httpsAgent: agent });
+      // 使用更精確的換行符切割
       const lines = res.data.split(/\r?\n/);
       
-      let tempName = ""; // 用於暫存 M3U 的名稱
-
-      for (let line of lines) {
-        line = line.trim();
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
         if (!line) continue;
 
-        // 邏輯 A: 發現 M3U 標籤，提取名稱並暫存
+        let name = "", streamUrl = "";
+
+        // 回歸舊版的核心解析邏輯
         if (line.startsWith('#EXTINF')) {
-          const namePart = line.split(',')[1];
-          tempName = namePart ? namePart.trim() : "";
-          continue; // 繼續看下一行，直到找到 URL
-        }
-
-        // 邏輯 B: 如果是 URL (無論是 M3U 的下一行還是 TXT 格式)
-        if (line.startsWith('http')) {
-          let name = "";
-          let streamUrl = line;
-
-          if (tempName) {
-            // 這是 M3U 配對成功的 URL
-            name = tempName;
-            tempName = ""; // 用完清空
-          } else if (line.includes(',') || line.includes('#')) {
-            // 處理某些怪異格式：URL,名稱
-            const parts = line.split(/[,#]/);
-            streamUrl = parts[0].trim();
-            name = parts[1] ? parts[1].trim() : "未知頻道";
-          }
-          
-          const group = getGroupAndFilter(name);
-          if (group && streamUrl.startsWith('http')) {
-            rawChannels.push({ name, url: streamUrl, group });
-          }
+          const parts = line.split(',');
+          name = parts[parts.length - 1].trim(); // 拿最後一部分作為名稱
+          streamUrl = lines[i + 1] ? lines[i + 1].trim() : "";
+          i++; 
         } 
-        // 邏輯 C: 處理標準 TXT 格式 (名稱,URL)
         else if (line.includes(',') && line.includes('http')) {
           const parts = line.split(',');
-          const name = parts[0].trim();
-          const streamUrl = parts[parts.length - 1].trim(); // 取最後一部分作為 URL
+          name = parts[0].trim();
+          streamUrl = parts[1] ? parts[1].trim() : "";
+        }
 
+        if (streamUrl && streamUrl.startsWith('http')) {
           const group = getGroupAndFilter(name);
-          if (group && streamUrl.startsWith('http')) {
-            rawChannels.push({ name, url: streamUrl, group });
-          }
+          if (group) rawChannels.push({ name, url: streamUrl, group });
         }
       }
     } catch (e) { console.error(`⚠️ 抓取失敗: ${url.substring(0, 30)}`); }
   }
 
-  // 去重
   const uniqueChannels = Array.from(new Map(rawChannels.map(c => [c.url, c])).values());
-  console.log(`📊 待校驗總線路: ${uniqueChannels.length}`);
+  console.log(`📊 抓取完成，有效線路總數: ${uniqueChannels.length}`);
 
-  // --- 校驗階段 ---
+  // 校驗階段：使用與舊版一致的 batchSize = 20
   const testedChannels = [];
-  const batchSize = 15; 
+  const batchSize = 20; 
   for (let i = 0; i < uniqueChannels.length; i += batchSize) {
     const batch = uniqueChannels.slice(i, i + batchSize);
     const results = await Promise.all(batch.map(async (channel) => {
       const start = Date.now();
       try {
         const res = await axios.get(channel.url, { 
-          timeout: 5000, 
+          timeout: 5000, // 稍微放寬到 5 秒增加保留率
           responseType: 'stream', 
-          httpsAgent: agent,
-          headers: commonHeaders
+          httpsAgent: agent 
         });
         res.data.destroy();
         return { ...channel, latency: Date.now() - start };
       } catch (e) { return null; }
     }));
     testedChannels.push(...results.filter(r => r !== null));
-    process.stdout.write(".");
   }
 
-  // 生成 M3U 檔案
+  // 生成 M3U... (其餘邏輯與舊版一致)
   const mergedMap = new Map();
   testedChannels.forEach(c => {
     if (!mergedMap.has(c.name)) mergedMap.set(c.name, []);
@@ -131,7 +106,7 @@ async function update() {
   const dir = './data';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'subscription.m3u'), finalM3U);
-  console.log(`\n✅ 完成！頻道: ${mergedMap.size}, 有效線路: ${testedChannels.length}`);
+  console.log(`✅ 完成！頻道: ${mergedMap.size}, 線路: ${testedChannels.length}`);
 }
 
 update().catch(err => console.error(err));
