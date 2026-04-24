@@ -13,7 +13,7 @@ const getGroupAndFilter = (name) => {
   return null;
 };
 
-// --- 2. 全量數據源列表 (15個源) ---
+// --- 2. 數據源列表 ---
 const SOURCE_URLS = [
   "https://raw.nuaa.cf/zgyd11/xiangjiao/main/itvlist.txt",
   "https://gitee.com/flying-snow-wu/tv/raw/main/itvlist.txt",
@@ -34,58 +34,56 @@ const SOURCE_URLS = [
 
 const COMMON_HEADERS = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' };
 
+// --- 3. 深度校驗函數 (優化版) ---
 async function checkStream(channel) {
   const start = Date.now();
   try {
-    // 階段 A: 獲取響應頭並檢查 Content-Type
+    // 階段 1: 快速篩選 (HEAD 請求)
+    await axios.head(channel.url, { 
+      timeout: 1200, 
+      headers: COMMON_HEADERS,
+      validateStatus: (s) => s >= 200 && s < 400
+    });
+
+    // 階段 2: 流量實測 (GET Stream)
     const res = await axios.get(channel.url, { 
-      timeout: 3500, 
+      timeout: 1500, 
       headers: COMMON_HEADERS, 
       responseType: 'stream' 
     });
 
     const ct = res.headers['content-type'] || '';
-    // 排除掉明顯是網頁或 JSON 報錯的源
     if (ct.includes('text/html') || ct.includes('application/json')) {
       res.data.destroy();
       return null;
     }
 
-    // 階段 B: 監聽首字節數據流
-    const isRealStream = await new Promise((resolve) => {
-      let timeoutId = setTimeout(() => {
-        res.data.destroy();
-        resolve(false);
-      }, 2500); // 2.5秒內不吐數據就視為無效
-
+    const isAlive = await new Promise((resolve) => {
+      let timer = setTimeout(() => { res.data.destroy(); resolve(false); }, 1200);
       res.data.on('data', (chunk) => {
         if (chunk.length > 0) {
-          clearTimeout(timeoutId);
-          res.data.destroy(); // 拿到數據即關閉連接
+          clearTimeout(timer);
+          res.data.destroy();
           resolve(true);
         }
       });
-
-      res.data.on('error', () => {
-        clearTimeout(timeoutId);
-        resolve(false);
-      });
+      res.data.on('error', () => { clearTimeout(timer); resolve(false); });
     });
 
-    return isRealStream ? { ...channel, latency: Date.now() - start } : null;
+    return isAlive ? { ...channel, latency: Date.now() - start } : null;
   } catch (e) {
     return null;
   }
 }
 
 async function update() {
-  console.log("🚀 啟動深度校驗引擎 (這會比普通檢測慢，但更精準)...");
+  console.log("🚀 啟動全速深度校驗引擎...");
   let rawChannels = [];
 
   for (const url of SOURCE_URLS) {
     try {
       console.log(`📡 抓取源: ${url.substring(0, 50)}...`);
-      const res = await axios.get(url, { timeout: 10000, headers: COMMON_HEADERS });
+      const res = await axios.get(url, { timeout: 8000, headers: COMMON_HEADERS });
       const content = res.data;
       const lines = content.split('\n');
 
@@ -121,18 +119,17 @@ async function update() {
   const uniqueChannels = Array.from(uniqueUrlMap.values());
   console.log(`📊 待校驗線路: ${uniqueChannels.length}`);
 
-  // --- 高速並發深度校驗 ---
+  // --- 激進並發控制 ---
   const testedChannels = [];
-  const batchSize = 25; // 深度校驗較吃資源，並發調低一點更穩定
+  const BATCH_SIZE = 200; // 如果電腦配置較低或網絡不穩，可調回 100
   
-  for (let i = 0; i < uniqueChannels.length; i += batchSize) {
-    const batch = uniqueChannels.slice(i, i + batchSize);
+  for (let i = 0; i < uniqueChannels.length; i += BATCH_SIZE) {
+    const batch = uniqueChannels.slice(i, i + BATCH_SIZE);
     const results = await Promise.all(batch.map(checkStream));
     testedChannels.push(...results.filter(r => r !== null));
-    console.log(`🔄 校驗中: ${Math.min(i + batchSize, uniqueChannels.length)} / ${uniqueChannels.length} (有效: ${testedChannels.length})`);
+    console.log(`🔄 進度: ${Math.min(i + BATCH_SIZE, uniqueChannels.length)} / ${uniqueChannels.length} (有效: ${testedChannels.length})`);
   }
 
-  // --- 聚合排序與輸出 ---
   const mergedMap = new Map();
   testedChannels.forEach(channel => {
     if (!mergedMap.has(channel.name)) mergedMap.set(channel.name, []);
@@ -151,7 +148,7 @@ async function update() {
   const dir = './data';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
   fs.writeFileSync(path.join(dir, 'subscription.m3u'), finalM3U);
-  console.log(`✅ 完成！保留頻道: ${mergedMap.size}, 有效線路: ${testedChannels.length}`);
+  console.log(`✅ 完成！保留頻道: ${mergedMap.size}, 有效總線路: ${testedChannels.length}`);
 }
 
 update().catch(err => console.error("❌ 嚴重錯誤:", err));
