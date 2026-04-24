@@ -1,15 +1,8 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const http = require('http');
-const https = require('https');
 
-// --- 設置全局代理與連接池優化 ---
-const agentConfig = { keepAlive: true, maxSockets: 100 };
-const httpAgent = new http.Agent(agentConfig);
-const httpsAgent = new https.Agent(agentConfig);
-
-// --- 1. 智慧分組邏輯 ---
+// --- 1. 智慧分組邏輯 (維持你最認可的分類) ---
 const getGroupAndFilter = (name) => {
   if (!name) return null;
   const n = name.toUpperCase();
@@ -20,6 +13,7 @@ const getGroupAndFilter = (name) => {
   return null;
 };
 
+// --- 2. 全量數據源 (15個) ---
 const SOURCE_URLS = [
   "https://raw.nuaa.cf/zgyd11/xiangjiao/main/itvlist.txt",
   "https://gitee.com/flying-snow-wu/tv/raw/main/itvlist.txt",
@@ -40,78 +34,43 @@ const SOURCE_URLS = [
 
 const COMMON_HEADERS = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' };
 
-// --- 核心優化：更快速的校驗邏輯 ---
+// --- 3. 穩健校驗函數 (回歸最初的穩定性) ---
 async function checkStream(channel) {
   const isGlobal = channel.group === "港澳台";
-  const timeoutLimit = isGlobal ? 4500 : 2000; // 略微壓縮時間
+  const timeout = isGlobal ? 8000 : 4000; // 給海外源充足的時間
   const start = Date.now();
 
   try {
-    const res = await axios.get(channel.url, { 
-      timeout: timeoutLimit, 
-      headers: COMMON_HEADERS, 
-      responseType: 'stream',
-      httpAgent,
-      httpsAgent
+    // 這裡我們不使用 Stream 嗅探，只檢查連接是否穩定建立
+    // 這樣可以避免因為數據包解析問題誤刪頻道
+    await axios.get(channel.url, { 
+      timeout: timeout, 
+      headers: COMMON_HEADERS,
+      responseType: 'arraybuffer', // 讀取一小塊緩衝區即停止
+      maxContentLength: 1024 // 只拿 1KB 資料
     });
 
-    return new Promise((resolve) => {
-      let timer = setTimeout(() => { 
-        res.data.destroy(); 
-        resolve(null); 
-      }, isGlobal ? 3500 : 1500);
-      
-      res.data.on('data', (chunk) => {
-        if (chunk.length > 0) {
-          clearTimeout(timer);
-          res.data.destroy();
-          resolve({ ...channel, latency: Date.now() - start });
-        }
-      });
-      res.data.on('error', () => { 
-        clearTimeout(timer); 
-        resolve(null); 
-      });
-    });
+    return { ...channel, latency: Date.now() - start };
   } catch (e) {
+    // 即使 GET 失敗，如果返回的是 200 (比如 axios 的 buffer 報錯)，我們依然可以考慮保留
+    if (e.response && e.response.status === 200) {
+        return { ...channel, latency: Date.now() - start };
+    }
     return null;
   }
 }
 
-// --- 任務池並行處理器 (核心提速引擎) ---
-async function pool(tasks, concurrency) {
-  const results = [];
-  const executing = new Set();
-  let finished = 0;
-
-  for (const task of tasks) {
-    const p = Promise.resolve().then(() => checkStream(task));
-    results.push(p);
-    executing.add(p);
-    
-    p.then(() => {
-        executing.delete(p);
-        finished++;
-        if (finished % 50 === 0) console.log(`🔄 已完成: ${finished} / ${tasks.length}`);
-    });
-
-    if (executing.size >= concurrency) {
-      await Promise.race(executing);
-    }
-  }
-  return Promise.all(results);
-}
-
 async function update() {
-  console.log("🚀 啟動池化併發引擎 (預期提速 5-10 倍)...");
+  console.log("🚀 啟動穩健回歸版引擎 (優先保證頻道完整度)...");
   let rawChannels = [];
 
-  // --- 抓取部分 (保持不變) ---
   for (const url of SOURCE_URLS) {
     try {
-      const res = await axios.get(url, { timeout: 8000, headers: COMMON_HEADERS });
+      console.log(`📡 抓取: ${url.substring(0, 40)}...`);
+      const res = await axios.get(url, { timeout: 15000, headers: COMMON_HEADERS });
       const content = res.data;
       const lines = content.split('\n');
+
       if (content.includes("#EXTM3U")) {
         for (let i = 0; i < lines.length; i++) {
           if (lines[i].trim().startsWith('#EXTINF')) {
@@ -140,14 +99,19 @@ async function update() {
   const uniqueUrlMap = new Map();
   rawChannels.forEach(c => uniqueUrlMap.set(c.url, c));
   const uniqueChannels = Array.from(uniqueUrlMap.values());
-  console.log(`📊 待校驗線路: ${uniqueChannels.length}`);
+  console.log(`📊 原始篩選頻道: ${uniqueChannels.length}`);
 
-  // --- 執行池化併發 ---
-  // concurrency 設置為 100-150 是比較理想的，不會讓本地 DNS 或帶寬崩潰
-  const results = await pool(uniqueChannels, 120);
-  const testedChannels = results.filter(r => r !== null);
+  // --- 關鍵修改：低併發模式 ---
+  const testedChannels = [];
+  const BATCH_SIZE = 30; // 降低併發，保證每個請求都有足夠的本地資源
+  
+  for (let i = 0; i < uniqueChannels.length; i += BATCH_SIZE) {
+    const batch = uniqueChannels.slice(i, i + BATCH_SIZE);
+    const results = await Promise.all(batch.map(checkStream));
+    testedChannels.push(...results.filter(r => r !== null));
+    console.log(`🔄 進度: ${Math.min(i + BATCH_SIZE, uniqueChannels.length)} / ${uniqueChannels.length} (目前有效: ${testedChannels.length})`);
+  }
 
-  // --- 聚合與輸出 ---
   const mergedMap = new Map();
   testedChannels.forEach(channel => {
     if (!mergedMap.has(channel.name)) mergedMap.set(channel.name, []);
@@ -166,7 +130,7 @@ async function update() {
   const dir = './data';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
   fs.writeFileSync(path.join(dir, 'subscription.m3u'), finalM3U);
-  console.log(`✅ 完成！有效頻道: ${mergedMap.size}, 線路: ${testedChannels.length}`);
+  console.log(`✅ 完成！保留頻道: ${mergedMap.size}, 線路總數: ${testedChannels.length}`);
 }
 
 update().catch(err => console.error("❌ 嚴重錯誤:", err));
