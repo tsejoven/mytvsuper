@@ -14,7 +14,6 @@ Astro AOD,https://cdn3.indevs.in/stream/live/aod/
 Astro AEC,https://cdn3.indevs.in/stream/live/aec/
 Astro QJ,https://cdn3.indevs.in/stream/live/qj/
 Astro欢喜台,https://cdn3.indevs.in/stream/live/hxt/
-爱奇艺,https://cdn3.indevs.in/stream/live/iqiyi/
 天映频道,https://cdn3.indevs.in/stream/live/typd/
 天映经典,https://cdn3.indevs.in/stream/live/ccm/
 TVB星河,https://cdn3.indevs.in/stream/live/tvbxh/
@@ -25,7 +24,6 @@ Astro AOD,https://cdn3.indevs.in/stream/live/aod/
 Astro AEC,https://cdn3.indevs.in/stream/live/aec/
 Astro QJ,https://cdn3.indevs.in/stream/live/qj/
 Astro欢喜台,https://cdn3.indevs.in/stream/live/hxt/
-爱奇艺,https://cdn3.indevs.in/stream/live/iqiyi/
 天映频道,https://cdn3.indevs.in/stream/live/typd/
 天映经典,https://cdn3.indevs.in/stream/live/ccm/
 TVB星河,https://cdn3.indevs.in/stream/live/tvbxh/
@@ -39,8 +37,6 @@ HOY77,https://fast.hidns.vip/163189/hoy#https://cdn6.cc.cd/163189/hoy
 HOY资讯台,https://fast.hidns.vip/163189/hoy78
 RTHK31,https://fast.hidns.vip/163189/rthk31
 RTHK32,https://fast.hidns.vip/163189/rthk32
-HOY76,https://fast.hidns.vip/163189/hoy76
-HOY77,https://fast.hidns.vip/163189/hoy77
 HOY77,https://fast.hidns.vip/163189/hoy
 HOY78,https://fast.hidns.vip/163189/hoy78
 NOW新闻台,https://fast.hidns.vip/163189/now
@@ -113,6 +109,7 @@ Now华剧,http://iptv.4666888.xyz/iptv2A.php?id=84
 民視,http://211.72.174.95:8115/0.ts
 台視,http://211.72.174.95:8112/0.ts
 東森新聞,http://211.72.174.95:8138/0.ts
+
 華視,rtmp://f13h.mine.nu/sat/tv111
 中視,rtmp://f13h.mine.nu/sat/tv091
 台視,rtmp://f13h.mine.nu/sat/tv071
