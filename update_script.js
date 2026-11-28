@@ -15,21 +15,7 @@ const getGroupAndFilter = (name) => {
 
 // --- 2. 全量數據源 (15個) ---
 const SOURCE_URLS = [
-  "https://raw.nuaa.cf/zgyd11/xiangjiao/main/itvlist.txt",
-  "https://gitee.com/flying-snow-wu/tv/raw/main/itvlist.txt",
-  "https://gitee.com/ztxiaoyao/tv/raw/master/修改版.txt",
-  "https://php.946985.filegear-sg.me/jackTV.m3u",
-  "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
-  "https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u",
-  "https://raw.githubusercontent.com/Guovern/iptv/master/docs/iptv.m3u",
-  "https://raw.githubusercontent.com/250992941/tv2/refs/heads/main/assets/freetv/freetv_output_other.txt",
-  "https://raw.githubusercontent.com/YueChan/Live/refs/heads/main/GNTV.m3u",
-  "https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
-  "https://raw.githubusercontent.com/Free-TV/IPTV/refs/heads/master/playlist.m3u8",
-  "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
-  "https://raw.githubusercontent.com/alantang1977/X/refs/heads/main/live/live_ipv4.m3u",
-  "https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/refs/heads/Jsnzkpg/Jsnzkpg1.m3u",
-  "https://raw.githubusercontent.com/judy-gotv/iptv/refs/heads/main/ofiii.m3u"
+  "https://caonima.898757.xyz/sub/Zz0uFf9Cz0kp/playlist.m3u"
 ];
 
 const COMMON_HEADERS = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' };
